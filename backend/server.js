@@ -6,11 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Conexão com o MongoDB
-mongoose.connect(
-  "mongodb+srv://kelvbascont:7Qz7F921GytUbOkL@cluster1.apfrm69.mongodb.net/abats?retryWrites=true&w=majority&appName=Cluster1",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+// Conexão com o MongoDB usando variável de ambiente
+mongoose.connect(process.env.MONGODB_URI, {
+  // useNewUrlParser e useUnifiedTopology são opcionais e não necessários em versões recentes
+});
 
 // Schema e Model do Paciente
 const PatientSchema = new mongoose.Schema({
@@ -52,7 +51,7 @@ app.delete("/patients/:id", async (req, res) => {
 });
 
 // Inicialização do servidor
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`API rodando em http://localhost:${PORT}`);
+  console.log(`API rodando na porta ${PORT}`);
 });

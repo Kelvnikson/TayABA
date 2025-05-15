@@ -11,7 +11,7 @@ interface Session {
   avatarSeed: string;
 }
 
-const API_URL = "http://localhost:4000/patients";
+const API_URL = "https://frontaba-production.up.railway.app/patients";
 
 const SessionCard = ({ session }: { session: Session }) => (
   <Card className="mb-3">

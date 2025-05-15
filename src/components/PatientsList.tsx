@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import PatientRow, { PatientRowProps } from "./PatientRow";
 import PatientForm from "./PatientForm";
 
-const API_URL = "http://localhost:4000/patients";
+const API_URL = "https://frontaba-production.up.railway.app/patients";
 
 const PatientsList = () => {
   const [search, setSearch] = useState("");
